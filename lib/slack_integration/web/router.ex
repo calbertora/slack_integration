@@ -17,7 +17,7 @@ defmodule SlackIntegration.Web.Router do
 
     case Controller.process_message(body) do
       {:ok, message} -> send_resp(conn, 200, message)
-      {:error, message} -> send_resp(conn, 500, message)
+      {:error, message} -> send_resp(conn, 400, message)
     end
   end
 

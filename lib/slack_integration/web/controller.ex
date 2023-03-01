@@ -1,7 +1,6 @@
 defmodule SlackIntegration.Web.Controller do
   alias SlackIntegration.Slack
   def process_message(%{"Type" => "SpamNotification"} = body) do
-
     message = "Spam notification from #{body["Email"]}: #{body["Description"]}"
 
     case Slack.send_message(message) do
