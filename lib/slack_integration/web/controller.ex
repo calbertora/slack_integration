@@ -5,7 +5,7 @@ defmodule SlackIntegration.Web.Controller do
 
     case Slack.send_message(message) do
       {:ok, _} -> {:ok, "Spam message processed"}
-      other -> {:error, other}
+      other -> other
     end
   end
 

@@ -25,6 +25,7 @@ defmodule SlackIntegration.MixProject do
       {:httpoison, "~> 2.0.0"},
       {:plug_cowboy, "~> 2.6"},
       {:jason, "~> 1.4"},
+      {:mock, "~> 0.3.7", only: :test}
     ]
   end
 end
