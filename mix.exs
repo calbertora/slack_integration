@@ -14,7 +14,8 @@ defmodule SlackIntegration.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      mod: {SlackIntegration.Application, []}
     ]
   end
 
@@ -22,7 +23,8 @@ defmodule SlackIntegration.MixProject do
   defp deps do
     [
       {:httpoison, "~> 2.0.0"},
-      {:plug_cowboy, "~> 2.6"}
+      {:plug_cowboy, "~> 2.6"},
+      {:jason, "~> 1.4"},
     ]
   end
 end

@@ -3,6 +3,15 @@ defmodule SlackIntegration.Web.Router do
 
   alias SlackIntegration.Web.Controller
 
+  plug(Plug.Parsers,
+    parsers: [:json],
+    pass: ["application/json"],
+    json_decoder: Jason
+  )
+
+  plug :match
+  plug :dispatch
+
   post "/api/process-message" do
     body = conn.body_params
 
@@ -10,5 +19,9 @@ defmodule SlackIntegration.Web.Router do
       {:ok, message} -> send_resp(conn, 200, message)
       {:error, message} -> send_resp(conn, 500, message)
     end
+  end
+
+  match _ do
+    send_resp(conn, 404, "Oops!")
   end
 end
